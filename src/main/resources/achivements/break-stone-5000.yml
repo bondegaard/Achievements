@@ -1,0 +1,11 @@
+type: MINING
+amount: 5000
+itemType: STONE
+complete-player-message: "You completed a quest!"
+rewards:
+  1:
+    type: MONEY
+    amount: 100
+  2:
+    type: COMMAND
+    command: "msg {PLAYER} Good Job!"

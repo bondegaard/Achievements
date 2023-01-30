@@ -1,0 +1,5 @@
+type: MINING
+amount: 500
+itemType: STONE
+complete-player-broadcast: "{PLAYER} completed a quest!"
+

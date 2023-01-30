@@ -2,7 +2,11 @@ package dk.bondegaard.achivements.achivements;
 
 import dk.bondegaard.achivements.achivements.reward.Reward;
 import dk.bondegaard.achivements.playerdata.APlayer;
+import dk.bondegaard.achivements.utils.PlayerUtils;
+import dk.bondegaard.achivements.utils.StringUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 import java.sql.Timestamp;
@@ -26,13 +30,19 @@ public class Achivements {
     // For tasks that requires a specific item to be broken, placed, eaten, etc...
     private Material itemType = null;
 
+    private String completePlayerMessage = "";
 
-    public Achivements(String name, AchivementsType type, long amountGoal, Material itemType, List<Reward> rewards) {
+    private String completePlayerBroadcast = "";
+
+
+    public Achivements(String name, AchivementsType type, long amountGoal, Material itemType, List<Reward> rewards, String completePlayerMessage, String completePlayerBroadcast) {
         this.name = name;
         this.type = type;
         this.amountGoal = amountGoal;
         this.itemType = itemType;
         this.rewards = rewards;
+        this.completePlayerMessage = completePlayerMessage;
+        this.completePlayerBroadcast = completePlayerBroadcast;
     }
 
     //GETTERS
@@ -73,6 +83,10 @@ public class Achivements {
         for (Reward reward : rewards) {
             reward.giveReward(player);
         }
+        player.playSound(player.getLocation(), Sound.LEVEL_UP, 0.7f, 0.7f);
+        if (!completePlayerMessage.equals("")) PlayerUtils.sendMessage(player, completePlayerMessage);
+        if (!completePlayerBroadcast.equals(""))
+            Bukkit.broadcastMessage(StringUtil.colorize(completePlayerBroadcast.replace("{PLAYER}", player.getName())));
     }
 
     public void addProgress(APlayer aPlayer) {

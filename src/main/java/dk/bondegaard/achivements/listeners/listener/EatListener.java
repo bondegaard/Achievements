@@ -5,25 +5,23 @@ import dk.bondegaard.achivements.achivements.Achivements;
 import dk.bondegaard.achivements.achivements.AchivementsType;
 import dk.bondegaard.achivements.playerdata.APlayer;
 import dk.bondegaard.achivements.playerdata.PlayerDataHandler;
-import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.player.PlayerItemConsumeEvent;
 
-public class BlockPlaceListener implements Listener {
+public class EatListener implements Listener {
 
 
     @EventHandler
-    public void onBlockPlace(BlockPlaceEvent event) {
+    public void onCommandUse(PlayerItemConsumeEvent event) {
         if (event.isCancelled()) return;
 
-        Material material = event.getBlock().getType();
         APlayer aPlayer = PlayerDataHandler.getAPlayer(event.getPlayer());
         if (aPlayer == null) return;
 
         for (Achivements achivements : Main.getInstance().getAchivementsHandler().getAchivements()) {
-            if (achivements.getType() != AchivementsType.BLOCK_PLACE) continue;
-            if (!(achivements.getItemType() != null && achivements.getItemType() == material)) continue;
+            if (achivements.getType() != AchivementsType.PLAYER_EAT) continue;
+            if (achivements.getItemType() == null) continue;
 
             achivements.addProgress(aPlayer);
         }

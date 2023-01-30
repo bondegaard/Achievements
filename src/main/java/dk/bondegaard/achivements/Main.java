@@ -53,7 +53,6 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        achivementsHandler.saveConfig();
         for (APlayer aPlayer : PlayerDataHandler.getPlayers()) {
             aPlayer.save(true);
         }
