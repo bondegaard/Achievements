@@ -1,0 +1,6 @@
+name: Achivements
+version: '${project.version}'
+main: dk.bondegaard.achivements.Main
+authors: [ Bondegaard ]
+softdepend:
+  - Vault

@@ -1,0 +1,16 @@
+achivements:
+  break-stone-5:
+    type: MINING
+    amount: 5
+    itemType: STONE
+    rewards:
+      1:
+        type: MONEY
+        amount: 100
+      2:
+        type: COMMAND
+        command: "msg {PLAYER} Good Job!"
+      3:
+        type: ITEM
+        amount: 16
+        item: STONE
