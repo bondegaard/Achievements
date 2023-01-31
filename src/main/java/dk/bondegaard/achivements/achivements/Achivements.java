@@ -36,7 +36,7 @@ public class Achivements {
 
 
     public Achivements(String name, AchivementsType type, long amountGoal, Material itemType, List<Reward> rewards, String completePlayerMessage, String completePlayerBroadcast) {
-        this.name = name;
+        this.name = name.split("\\.")[0];
         this.type = type;
         this.amountGoal = amountGoal;
         this.itemType = itemType;
@@ -83,7 +83,6 @@ public class Achivements {
         for (Reward reward : rewards) {
             reward.giveReward(player);
         }
-        player.playSound(player.getLocation(), Sound.LEVEL_UP, 0.7f, 0.7f);
         if (!completePlayerMessage.equals("")) PlayerUtils.sendMessage(player, completePlayerMessage);
         if (!completePlayerBroadcast.equals(""))
             Bukkit.broadcastMessage(StringUtil.colorize(completePlayerBroadcast.replace("{PLAYER}", player.getName())));

@@ -11,9 +11,9 @@ public class Reward {
 
     private final long amount;
 
-    private String command = "";
+    private String command;
 
-    private Material item = null;
+    private Material item;
 
     public Reward(RewardType rewardType, long amount, String command, Material item) {
         this.rewardType = rewardType;
@@ -40,7 +40,7 @@ public class Reward {
             if (c.startsWith("/") && c.length() > 1) c = c.substring(1);
             Main.getInstance().getServer().dispatchCommand(Main.getInstance().getServer().getConsoleSender(), "/" + c);
         } else if (rewardType == RewardType.ITEM) {
-            addItem(player, new ItemStack(item), (int) amount);
+            if (item != null && amount > 0) addItem(player, new ItemStack(item), (int) amount);
         }
         return this;
     }

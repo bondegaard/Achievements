@@ -80,7 +80,7 @@ public class AchivementsHandler {
                         String rewardCommand = rewardSection.contains("command") ? rewardSection.getString("command") : ""; // DEFAULT = 1
                         Material rewardMaterial = Material.AIR;
                         try {
-                            rewardMaterial = rewardSection.contains("itemType") ? Material.getMaterial(rewardSection.getString("itemType")) : null; // DEFAULT = null
+                            rewardMaterial = rewardSection.contains("item") ? Material.getMaterial(rewardSection.getString("item")) : null; // DEFAULT = null
                         } catch (Exception ex) {
                             Main.getInstance().getLogger().log(Level.WARNING, "Could not load achievement reward " + file.getName() + "| reward." + rewardsKey + ": Invalid item in config");
                         }
@@ -95,6 +95,7 @@ public class AchivementsHandler {
                 Main.getInstance().getLogger().log(Level.INFO, "Could not load achievement: " + file.getName());
             }
         }
+        Main.getInstance().getLogger().log(Level.INFO, "Loaded achievement: " + achivements.size());
 
         return this;
     }
