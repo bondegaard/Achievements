@@ -44,4 +44,20 @@ public class Reward {
         }
         return this;
     }
+
+    public RewardType getRewardType() {
+        return rewardType;
+    }
+
+    public long getAmount() {
+        return amount;
+    }
+
+    public String getCommand() {
+        return command;
+    }
+
+    public Material getItem() {
+        return item;
+    }
 }

@@ -4,3 +4,9 @@ main: dk.bondegaard.achievements.Main
 authors: [ Bondegaard ]
 softdepend:
   - Vault
+commands:
+  aach:
+    description: "Admin command for Achievements"
+    permission: "achievements.admin"
+    usage: "/aach"
+    permission-message: "You do not have permission to use this command"

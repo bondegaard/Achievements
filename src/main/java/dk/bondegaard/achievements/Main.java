@@ -1,6 +1,7 @@
 package dk.bondegaard.achievements;
 
 import dk.bondegaard.achievements.achievements.AchievementsHandler;
+import dk.bondegaard.achievements.admintools.AdminToolsHandler;
 import dk.bondegaard.achievements.listeners.ListenerHandler;
 import dk.bondegaard.achievements.playerdata.APlayer;
 import dk.bondegaard.achievements.playerdata.PlayerDataHandler;
@@ -19,6 +20,8 @@ public final class Main extends JavaPlugin {
     private PlayerDataHandler playerDataHandler;
 
     private AchievementsHandler achievementsHandler;
+
+    private AdminToolsHandler adminToolsHandler;
 
     public static Main getInstance() {
         return instance;
@@ -47,6 +50,8 @@ public final class Main extends JavaPlugin {
         playerDataHandler = new PlayerDataHandler(this);
 
         achievementsHandler = new AchievementsHandler().load();
+
+        adminToolsHandler = new AdminToolsHandler();
 
         new ListenerHandler();
     }
