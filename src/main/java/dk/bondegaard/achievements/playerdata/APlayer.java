@@ -1,6 +1,6 @@
-package dk.bondegaard.achivements.playerdata;
+package dk.bondegaard.achievements.playerdata;
 
-import dk.bondegaard.achivements.Main;
+import dk.bondegaard.achievements.Main;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;

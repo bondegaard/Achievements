@@ -1,4 +1,4 @@
-package dk.bondegaard.achivements.utils;
+package dk.bondegaard.achievements.utils;
 
 import org.bukkit.ChatColor;
 

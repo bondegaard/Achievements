@@ -1,6 +1,6 @@
-package dk.bondegaard.achivements.achivements;
+package dk.bondegaard.achievements.achievements;
 
-public enum AchivementsType {
+public enum AchievementsType {
     BLOCK_BREAK,
     BLOCK_PLACE,
     COMMAND_USE,

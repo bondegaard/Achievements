@@ -1,8 +1,8 @@
-package dk.bondegaard.achivements.achivements;
+package dk.bondegaard.achievements.achievements;
 
-import dk.bondegaard.achivements.Main;
-import dk.bondegaard.achivements.achivements.reward.Reward;
-import dk.bondegaard.achivements.achivements.reward.RewardType;
+import dk.bondegaard.achievements.Main;
+import dk.bondegaard.achievements.achievements.reward.Reward;
+import dk.bondegaard.achievements.achievements.reward.RewardType;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-public class AchivementsHandler {
+public class AchievementsHandler {
 
-    private final List<Achivements> achivements = new ArrayList<>();
+    private final List<Achievements> achivements = new ArrayList<>();
 
-    public AchivementsHandler load() {
+    public AchievementsHandler load() {
         achivements.clear();
 
         File folder = new File(Main.getInstance().getDataFolder(), "achivements");
@@ -39,9 +39,9 @@ public class AchivementsHandler {
                 //  LOAD TYPE   //
                 // ############ //
                 if (!data.contains("type")) continue;
-                AchivementsType type = AchivementsType.UNKNOWN;
+                AchievementsType type = AchievementsType.UNKNOWN;
                 try {
-                    type = AchivementsType.valueOf(data.getString("type").toUpperCase());
+                    type = AchievementsType.valueOf(data.getString("type").toUpperCase());
                 } catch (Exception ex) {
                     Main.getInstance().getLogger().log(Level.WARNING, "Could not load achievement " + file.getName() + ": Invalid type in config");
                 }
@@ -90,7 +90,7 @@ public class AchivementsHandler {
                 String completePlayerMessage = data.contains("complete-player-message") ? data.getString("complete-player-message") : "";
                 String completePlayerBroadcast = data.contains("complete-player-broadcast") ? data.getString("complete-player-broadcast") : "";
 
-                achivements.add(new Achivements(file.getName().toLowerCase(), type, amount, material, rewards, completePlayerMessage, completePlayerBroadcast));
+                achivements.add(new Achievements(file.getName().toLowerCase(), type, amount, material, rewards, completePlayerMessage, completePlayerBroadcast));
             } catch (NullPointerException ex) {
                 Main.getInstance().getLogger().log(Level.INFO, "Could not load achievement: " + file.getName());
             }
@@ -100,12 +100,12 @@ public class AchivementsHandler {
         return this;
     }
 
-    public List<Achivements> getAchivements() {
+    public List<Achievements> getAchivements() {
         return achivements;
     }
 
     public boolean isAchievement(String name) {
-        for (Achivements a : achivements) {
+        for (Achievements a : achivements) {
             if (!a.getName().equalsIgnoreCase(name)) continue;
             return true;
         }

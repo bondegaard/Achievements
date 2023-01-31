@@ -1,7 +1,7 @@
-package dk.bondegaard.achivements.listeners;
+package dk.bondegaard.achievements.listeners;
 
-import dk.bondegaard.achivements.Main;
-import dk.bondegaard.achivements.listeners.listener.BlockBreakListener;
+import dk.bondegaard.achievements.Main;
+import dk.bondegaard.achievements.listeners.listener.BlockBreakListener;
 import org.bukkit.event.Listener;
 
 public class ListenerHandler {

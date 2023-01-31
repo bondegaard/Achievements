@@ -1,4 +1,4 @@
-package dk.bondegaard.achivements.achivements.reward;
+package dk.bondegaard.achievements.achievements.reward;
 
 public enum RewardType {
     ITEM,

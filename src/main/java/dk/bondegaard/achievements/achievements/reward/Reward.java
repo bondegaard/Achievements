@@ -1,6 +1,6 @@
-package dk.bondegaard.achivements.achivements.reward;
+package dk.bondegaard.achievements.achievements.reward;
 
-import dk.bondegaard.achivements.Main;
+import dk.bondegaard.achievements.Main;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -11,9 +11,9 @@ public class Reward {
 
     private final long amount;
 
-    private String command;
+    private final String command;
 
-    private Material item;
+    private final Material item;
 
     public Reward(RewardType rewardType, long amount, String command, Material item) {
         this.rewardType = rewardType;

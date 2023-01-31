@@ -1,9 +1,9 @@
-package dk.bondegaard.achivements;
+package dk.bondegaard.achievements;
 
-import dk.bondegaard.achivements.achivements.AchivementsHandler;
-import dk.bondegaard.achivements.listeners.ListenerHandler;
-import dk.bondegaard.achivements.playerdata.APlayer;
-import dk.bondegaard.achivements.playerdata.PlayerDataHandler;
+import dk.bondegaard.achievements.achievements.AchievementsHandler;
+import dk.bondegaard.achievements.listeners.ListenerHandler;
+import dk.bondegaard.achievements.playerdata.APlayer;
+import dk.bondegaard.achievements.playerdata.PlayerDataHandler;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -18,7 +18,7 @@ public final class Main extends JavaPlugin {
 
     private PlayerDataHandler playerDataHandler;
 
-    private AchivementsHandler achivementsHandler;
+    private AchievementsHandler achievementsHandler;
 
     public static Main getInstance() {
         return instance;
@@ -46,7 +46,7 @@ public final class Main extends JavaPlugin {
 
         playerDataHandler = new PlayerDataHandler(this);
 
-        achivementsHandler = new AchivementsHandler().load();
+        achievementsHandler = new AchievementsHandler().load();
 
         new ListenerHandler();
     }
@@ -78,7 +78,7 @@ public final class Main extends JavaPlugin {
         return playerDataHandler;
     }
 
-    public AchivementsHandler getAchivementsHandler() {
-        return achivementsHandler;
+    public AchievementsHandler getAchivementsHandler() {
+        return achievementsHandler;
     }
 }

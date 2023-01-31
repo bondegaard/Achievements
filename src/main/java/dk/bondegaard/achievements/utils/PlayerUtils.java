@@ -1,4 +1,4 @@
-package dk.bondegaard.achivements.utils;
+package dk.bondegaard.achievements.utils;
 
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;

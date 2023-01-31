@@ -1,25 +1,24 @@
-package dk.bondegaard.achivements.achivements;
+package dk.bondegaard.achievements.achievements;
 
-import dk.bondegaard.achivements.achivements.reward.Reward;
-import dk.bondegaard.achivements.playerdata.APlayer;
-import dk.bondegaard.achivements.utils.PlayerUtils;
-import dk.bondegaard.achivements.utils.StringUtil;
+import dk.bondegaard.achievements.achievements.reward.Reward;
+import dk.bondegaard.achievements.playerdata.APlayer;
+import dk.bondegaard.achievements.utils.PlayerUtils;
+import dk.bondegaard.achievements.utils.StringUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Achivements {
+public class Achievements {
 
     // Given name of achivement (Is Unique)
     private final String name;
 
     // Type of Achivement
-    private final AchivementsType type;
+    private final AchievementsType type;
 
     // How much a player has to do for a specific task
     private long amountGoal;
@@ -35,7 +34,7 @@ public class Achivements {
     private String completePlayerBroadcast = "";
 
 
-    public Achivements(String name, AchivementsType type, long amountGoal, Material itemType, List<Reward> rewards, String completePlayerMessage, String completePlayerBroadcast) {
+    public Achievements(String name, AchievementsType type, long amountGoal, Material itemType, List<Reward> rewards, String completePlayerMessage, String completePlayerBroadcast) {
         this.name = name.split("\\.")[0];
         this.type = type;
         this.amountGoal = amountGoal;
@@ -50,7 +49,7 @@ public class Achivements {
         return name;
     }
 
-    public AchivementsType getType() {
+    public AchievementsType getType() {
         return type;
     }
 
